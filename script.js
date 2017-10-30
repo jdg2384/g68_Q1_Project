@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     // Click Event to search location
-    var pictureArray =[];
+    
+    
     $( "#submit" ).on( "click", function() {
          event.preventDefault();
          var name = $( "#mapLookUp" ).val();
@@ -14,7 +15,6 @@ $( document ).ready(function() {
                  return;
              }
              for(var i = 0; i<place.features.length;i++){
-                console.log(typeof place.features[i].bbox);
                 if(typeof place.features[i].bbox === 'object'){
                     //Information for card to display
                     var placesChoice = place.features[i];
@@ -35,18 +35,18 @@ $( document ).ready(function() {
                 <h4 class="nameOfLocation">`+placesChoice["place_name"]+`</h4>
                 <p class="coordinates">`+cordOne+`</p>
                 </div></br></br></a>`);
-
+                //// Click event on cards collect pictures for place.html
                 $( ".placeInfo" ).on( "click", function() {
-                    event.preventDefault();
                     
-                    // var latLong = $(this).find('p').text();
                     var placeLocation = $(this).find('h4').text();
                     var key = 'AIzaSyAucu-0t05lrs1nV296Sa2nkvg92qFzt7s';
                     var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dc1d13330bebc0f61addf0d18f7b5270&tags="+placeLocation+"&safe_search=1&per_page=20";
-                    console.log('Place clicked ',placeLocation);
-                    console.log('URL ',url);
-                    $.getJSON(url + "&format=json&jsoncallback=?", function(data){
-                        
+                   $.getJSON(url + "&format=json&jsoncallback=?", function(data){
+                    
+                    var pictureArray =[];
+                    var pictureLocal = JSON.stringify(pictureArray);
+                    localStorage.setItem(pictureArray, pictureLocal);
+
                          for(var i =0; i< 10; i++){
                             var farm = data.photos.photo[i].farm;
                             var id = data.photos.photo[i].id;
@@ -55,15 +55,18 @@ $( document ).ready(function() {
                             pictureArray.push('http://farm'+farm+'.static.flickr.com/'+server+'/'+id+'_'+secret+'_z.jpg');
                             
                          }
-                         
-                        for(var i =0; i<pictureArray.length;i++){
-                            console.log('in the for loop ',pictureArray[i]);
-                            $("#placesPictures" ).append(`<img src="`+pictureArray[i]+`">`);
-                        }
-                        
+                        pictureLoop();
                     });
                 });
+                //// End cards click event 
+                function pictureLoop (){
+                    for(var i =0; i<pictureArray.length;i++){
+                        console.log('in the for loop ',pictureArray[i]);
+                        $("#placesPictures" ).append(`<img src="`+pictureArray[i]+`">`);
 
+                    }
+                } 
+            
             }
         });
     });
