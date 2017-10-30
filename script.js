@@ -1,10 +1,11 @@
 $( document ).ready(function() {
     // Click Event to search location
+    var pictureArray =[];
     $( "#submit" ).on( "click", function() {
          event.preventDefault();
          var name = $( "#mapLookUp" ).val();
          
-         var $xhr = $.getJSON('https://g68.herokuapp.com/geocoding/v5/mapbox.places/'+name+'.json?country=us&access_token=pk.eyJ1IjoiamRnMjM4NCIsImEiOiJjajk3bDB2em0wMTM3MnhwYXpndjR5azluIn0.rF-lTJv--A2S4vQFUaGwAQ');
+         var $xhr = $.getJSON('https://g68.herokuapp.com/geocoding/v5/mapbox.places/loveland.json?country=us&access_token=pk.eyJ1IjoiamRnMjM4NCIsImEiOiJjajk3bDB2em0wMTM3MnhwYXpndjR5azluIn0.rF-lTJv--A2S4vQFUaGwAQ');
          
          $xhr.done(function(place) {
              var apiToken = 'pk.eyJ1IjoiamRnMjM4NCIsImEiOiJjajk3bDB2em0wMTM3MnhwYXpndjR5azluIn0.rF-lTJv--A2S4vQFUaGwAQ';
@@ -29,42 +30,38 @@ $( document ).ready(function() {
                 var mapPicUrl = 'https://api.mapbox.com/v4/mapbox.outdoors/'+center+',10/400x200.png?access_token='+apiToken;
                 // Card Html
                 $("#places" ).append(`</br></br> 
-                <div class="placeInfo">
+                <a href="./place.html"><div class="placeInfo">
                 <img src="`+mapPicUrl+`">
                 <h4 class="nameOfLocation">`+placesChoice["place_name"]+`</h4>
                 <p class="coordinates">`+cordOne+`</p>
-                </div></br></br>`);
+                </div></br></br></a>`);
 
                 $( ".placeInfo" ).on( "click", function() {
                     event.preventDefault();
-                    var latLong = $(this).find('p').text();
+                    
+                    // var latLong = $(this).find('p').text();
                     var placeLocation = $(this).find('h4').text();
                     var key = 'AIzaSyAucu-0t05lrs1nV296Sa2nkvg92qFzt7s';
-                    //console.log('https://googleplacesg68.herokuapp.com/maps/api/place/nearbysearch/json?location='+latLong+'&radius=500&type=town&keyword=&key='+ key);
-                    //console.log(latLong);
-                    
-                    var $xhr = $.getJSON('https://googleplacesg68.herokuapp.com/maps/api/place/nearbysearch/json?location='+latLong+'&radius=500&type=town&keyword=&key='+ key);
-                    
-                    $xhr.done(function(data) {
-                        console.log('https://googleplacesg68.herokuapp.com/maps/api/place/nearbysearch/json?location='+latLong+'&radius=500&type=town&keyword=&key='+ key);
-                       const googleCords = data.results[0].geometry.location.lat+','+data.results[0].geometry.location.lng;
+                    var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dc1d13330bebc0f61addf0d18f7b5270&tags="+placeLocation+"&safe_search=1&per_page=20";
+                    console.log('Place clicked ',placeLocation);
+                    console.log('URL ',url);
+                    $.getJSON(url + "&format=json&jsoncallback=?", function(data){
                         
-                        if ($xhr.status !== 200) {
-                            return;
-                    
+                         for(var i =0; i< 10; i++){
+                            var farm = data.photos.photo[i].farm;
+                            var id = data.photos.photo[i].id;
+                            var server = data.photos.photo[i].server;
+                            var secret = data.photos.photo[i].secret;
+                            pictureArray.push('http://farm'+farm+'.static.flickr.com/'+server+'/'+id+'_'+secret+'_z.jpg');
+                            
+                         }
+                         
+                        for(var i =0; i<pictureArray.length;i++){
+                            console.log('in the for loop ',pictureArray[i]);
+                            $("#placesPictures" ).append(`<img src="`+pictureArray[i]+`">`);
                         }
-                        var $xhrX = $.getJSON('https://googleplacesg68.herokuapp.com/maps/api/place/nearbysearch/json?location='+googleCords+'&radius=500&type=restaurant&keyword=cruise&key='+ key);
                         
                     });
-                        
-                    $xhr.done(function(detail) {
-                        console.log("detail", detail);
-                        if ($xhr.status !== 200) {
-                            return;
-                    
-                        }
-                    });
-
                 });
 
             }
@@ -79,6 +76,13 @@ $( document ).ready(function() {
 
 
 
+// $xhr.done(function(detail) {
+//     console.log("detail", detail);
+//     if ($xhr.status !== 200) {
+//         return;
+
+//     }
+// });
 
 
 
