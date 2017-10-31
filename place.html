@@ -4,10 +4,35 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <script src="place.js"></script>
     </head>
     <body>
         
         <div id="placesPictures"></div>
+        <script>
+            var pictureArray =[]; 
+
+            var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=dc1d13330bebc0f61addf0d18f7b5270&tags=loveland&safe_search=1&per_page=20";
+                  
+            $.getJSON(url + "&format=json&jsoncallback=?", function(data){
+                  console.log(data);
+                    for(var i =0; i< 10; i++){
+                    var farm = data.photos.photo[i].farm;
+                    var id = data.photos.photo[i].id;
+                    var server = data.photos.photo[i].server;
+                    var secret = data.photos.photo[i].secret;
+                    pictureArray.push('http://farm'+farm+'.static.flickr.com/'+server+'/'+id+'_'+secret+'_z.jpg');
+                    
+                    }
+                    for(var i =0; i<pictureArray.length;i++){
+                        console.log('in the for loop ',pictureArray[i]);
+                        $("#placesPictures" ).append(`<img src="`+pictureArray[i]+`">`);
+
+                        
+
+                    }
+            });
+            
+        </script>
     </body>
 </html>

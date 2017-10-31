@@ -4,12 +4,34 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
+            <script src="styles.js"></script>
     <script src="script.js"></script>
+    <style>
+            body{
+                padding: 0px;
+            }
+            #map {
+             height: 700px;
+             width: 100%;
+            }
+         </style>
     </head>
     <body>
             <a href="./place.html">link test</a>
         <input id="mapLookUp" type="name">
         <button id="submit">Find</button>
         <div id="places"></div>
-    </body>
+        <a id="placesHref" href="">
+                <div id="map"></div>
+        </a>
+        
+        <script>
+            function initMap() {
+            }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChf1hEkz0QhMUqN82GJc72lpQHeMoVmrY&callback=initMap">
+        </script>
+        </body>
 </html>
+
