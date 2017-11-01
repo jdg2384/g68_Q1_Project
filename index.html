@@ -4,27 +4,84 @@
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
-            <script src="styles.js"></script>
-    <script src="script.js"></script>
-    <style>
-            body{
-                padding: 0px;
-            }
-            #map {
-             height: 700px;
-             width: 100%;
-            }
-         </style>
+            <title>Mapper</title>
+            <link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+            
+            <script src="js/styles.js"></script>
+            <script src="js/script.js"></script>
     </head>
     <body>
-            <a href="./place.html">link test</a>
-        <input id="mapLookUp" type="name">
-        <button id="submit">Find</button>
-        <div id="places"></div>
+        <!-- Start Navbar -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                <img alt="Brand"  style="height:60px;" src="./img/logo.svg">
+                </a>
+            </div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input id="mapLookUp" type="text" class="form-control" placeholder="Search">
+                </div>
+                <button id="submit" type="submit" class="btn btn-default">Submit</button>
+            </form>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+        <!-- Map display -->
         <a id="placesHref" href="">
-                <div id="map"></div>
+            <div id="map"></div>
         </a>
-        
+        <!-- End Map display -->
+        <header id="header">
+            <div class="text-center">
+                <img  src="./img/logo.svg" alt="logo">
+                <h1 class="headerText">Search | Find | Love</h1>
+                </div>
+             </div>
+        </header>
+        <!-- Body container -->
+        <div class="container ainerOne">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="circle glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <h3 class="hThree">Search</h3>
+                    <p>The Town of Carbondale is a Home Rule Municipality in Garfield County, Colorado, United States. The town population was 6427 at the 2010 United States Census.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="circle glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <h3>Find</h3>
+                    <p>The Town of Carbondale is a Home Rule Municipality in Garfield County, Colorado, United States. The town population was 6427 at the 2010 United States Census.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="circle glyphicon glyphicon-search" aria-hidden="true"></span>
+                    <h3>Love</h3>
+                    <p>The Town of Carbondale is a Home Rule Municipality in Garfield County, Colorado, United States. The town population was 6427 at the 2010 United States Census.</p>
+                </div>
+            </div>
+        </div>
+        <!--End Body container -->
+        <!-- Footer -->
+        <footer>
+            <div class="container ">
+                <div class="row text-center">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-skype"></i></a>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
         <script>
             function initMap() {
             }
