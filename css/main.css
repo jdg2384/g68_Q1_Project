@@ -5,6 +5,7 @@ font-family: 'Raleway', sans-serif !important;
 .map {
 height: 700px;
 width: 100%;
+transition:2.4s;
 }
 .navbar{
 margin: 0px !important;
@@ -62,16 +63,12 @@ padding-right:0;
 padding-left:0;
 }
 .flickrPhoto img{
-height: 500px;   
+width: 100%;
+height: 100%;   
 }
-.header {
-overflow-y: hidden;
-max-height: 200px;
-background: pink;
-height: 200px;
-width: 200px;
-opacity: 1;
+.headerMove {
 
+overflow-y: hidden;
 -webkit-transition-property: all;
 -webkit-transition-duration: .5s;
 -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
@@ -85,4 +82,5 @@ transition-property: all;
 transition-duration: .5s;
 transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
+
 

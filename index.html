@@ -1,18 +1,22 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script
-            src="https://code.jquery.com/jquery-3.2.1.js"
-            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-            crossorigin="anonymous"></script>
-            <title>Mapper</title>
-            <link rel="stylesheet" href="css/main.css">
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
-            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-            
-            <script src="js/styles.js"></script>
-            <script src="js/script.js"></script>
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+        <title>Mapper</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+        <link rel="icon" type="image/png" href="./img/icon.png" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+        <script src="js/styles.js"></script>
+        <script src="js/script.js"></script>
     </head>
     <body>
         <!-- Start Navbar -->
@@ -32,12 +36,17 @@
             </div>
         </nav>
         <!-- End Navbar -->
+        <div id="ex1" class="modal">
+            <p>Thanks for clicking. That felt good.</p>
+            <a href="#" rel="modal:close">Close</a>
+        </div>
+          
         <!-- Map display -->
         <a id="placesHref" href="">
             <div id="map"></div>
         </a>
         <!-- End Map display -->
-        <header id="header">
+        <header id="header" class="">
             <div class="text-center">
                 <img  src="./img/logo.svg" alt="logo">
                 <h1 class="headerText">Search | Find | Love</h1>
@@ -87,7 +96,7 @@
             }
         </script>
         <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChf1hEkz0QhMUqN82GJc72lpQHeMoVmrY&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChf1hEkz0QhMUqN82GJc72lpQHeMoVmrY&callback=initMap"></script>
         </script>
         </body>
 </html>
