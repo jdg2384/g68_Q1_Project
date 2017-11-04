@@ -1,0 +1,73 @@
+<html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+            <title>Mapper</title>
+            <link rel="stylesheet" href="css/main.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+            <link rel="icon" type="image/png" href="./img/icon.png" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+            <script src="js/styles.js"></script>
+            <script src="js/mypper.js"></script>
+        </head>
+        <body>
+            <!-- Start Navbar -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="./index.html">
+                    <img alt="Brand"  style="height:60px;" src="./img/logo.svg">
+                    </a>
+                </div>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input id="mapLookUp" type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+            <!-- Map display -->
+            <div  id="placesHref" href="">
+                <div id="map"></div>
+            </div>
+            <!-- <input id="addLocation" type="text" class="form-control" placeholder="Search"> -->
+            <!-- End Map display -->
+            
+            <!--End Body container -->
+            <!-- Footer -->
+            <footer>
+                <div class="container ">
+                    <div class="row text-center">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-skype"></i></a>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer -->
+            <script>
+                function initMap() {
+                }
+            </script>
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChf1hEkz0QhMUqN82GJc72lpQHeMoVmrY&callback=initMap"></script>
+            </script>
+            </body>
+    </html>
+    
